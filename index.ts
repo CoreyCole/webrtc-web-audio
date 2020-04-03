@@ -80,7 +80,7 @@ async function startDelayed() {
     connectionRecv.onaddstream = (event) => {
       recvAudio.srcObject = event.stream;
       recvAudio.onloadedmetadata = () => {
-        const audioObjectSource = audioContext.createMediaStreamSource(recvAudio.srcObject);
+        const audioObjectSource = audioContext.createMediaStreamSource(<MediaStream> recvAudio.srcObject);
         recvAudio.autoplay = true;
         // recvAudio.volume = 0;
         // recvAudio.muted = true;
