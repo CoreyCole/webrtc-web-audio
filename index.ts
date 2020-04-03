@@ -1,5 +1,4 @@
 import { TimerService } from './timer-service';
-import { CreateWebrtcStatsData } from './webrtc-stats.models';
 
 const timer = new TimerService();
 let audioContext: AudioContext;
