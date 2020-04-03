@@ -45,20 +45,13 @@ async function start() {
       if (event.candidate) connectionSend.addIceCandidate(new RTCIceCandidate(event.candidate));
     };
 
-    const constraints = {
-      mandatory: {
-        OfferToReceiveAudio: true,
-        OfferToReceiveVideo: false,
-      },
-    };
-
     // set connectionSend offer on both connections
-    const offer = await connectionSend.createOffer(constraints);
+    const offer = await connectionSend.createOffer();
     connectionSend.setLocalDescription(offer);
     connectionRecv.setRemoteDescription(offer);
 
     // set connectionRecv answer on both connections
-    const answer = await connectionRecv.createAnswer(constraints);
+    const answer = await connectionRecv.createAnswer();
     connectionSend.setRemoteDescription(answer);
     connectionRecv.setLocalDescription(answer);
 
