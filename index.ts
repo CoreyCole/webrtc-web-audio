@@ -1,3 +1,4 @@
+import adapter from 'webrtc-adapter';
 import { TimerService } from './timer-service';
 
 const timer = new TimerService();
