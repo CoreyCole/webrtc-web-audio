@@ -30,7 +30,7 @@ async function start() {
     connectionRecv.onaddstream = (event) => {
       recvAudio.srcObject = event.stream;
       recvAudio.onloadedmetadata = () => {
-        const audioObjectSource = audioContext.createMediaStreamSource(recvAudio.srcObject);
+        const audioObjectSource = audioContext.createMediaStreamSource(<MediaStream> recvAudio.srcObject);
         recvAudio.play();
         // recvAudio.muted = true;
         audioObjectSource.connect(audioContext.destination);
